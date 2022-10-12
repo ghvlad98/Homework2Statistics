@@ -34,12 +34,14 @@ namespace CSVParser
         static void Main(string[] args)
         {
             Program p = new Program();
-            int len = p.parse("C:\\Users\\VM\\Documents\\cities.csv").Length;
+            string currDir = AppDomain.CurrentDomain.BaseDirectory;
+            Console.WriteLine(currDir);
+            int len = p.parse("..\\..\\..\\..\\..\\cities.csv").Length;
             string res = "";
             for (int a = 0; a < len; a++)
             {   
                 res += "Dictionary for entry number " + (a + 1).ToString() + ":\n";
-                Dictionary<string, string> data = p.parse("C:\\Users\\VM\\Documents\\cities.csv")[a];
+                Dictionary<string, string> data = p.parse("..\\..\\..\\..\\..\\cities.csv")[a];
                 foreach (var pair in data)
                 {
                     res += pair.Key + ": " + pair.Value + "\n";
